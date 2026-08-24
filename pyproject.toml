@@ -1,0 +1,19 @@
+[project]
+name = "copilot-users"
+version = "0.1.0"
+description = "Add your description here"
+readme = "README.md"
+authors = [
+    { name = "Michal Karas", email = "michal.karas@allegro.com" }
+]
+requires-python = ">=3.10"
+dependencies = [
+    "httpx>=0.28.1",
+]
+
+[project.scripts]
+copilot-users = "copilot_users:main"
+
+[build-system]
+requires = ["uv_build>=0.12.1,<0.13.0"]
+build-backend = "uv_build"

@@ -5,9 +5,10 @@ from dataclasses import dataclass
 import httpx
 
 PEOPLE_API_URL = "https://people.allegrogroup.com/api/people"
+
 GITHUB_RUNNER_GATEWAY_URL = "https://github-runner-gateway-dev.allegrogroup.com"
 
-AUTH_TOKEN = "your_auth_token" # from https://auth-service-self-service.allegrogroup.com/token/
+AUTH_TOKEN = "your_auth_token"  # from https://auth-service-self-service.allegrogroup.com/token/
 
 CONCURRENCY_LIMIT = 20
 
@@ -37,7 +38,7 @@ async def fetch_person_license(
             response = await client.get(url)
             if response.status_code == 200:
                 data = response.json()
-                has_license = data.get("universal", {}).get("exists", False)
+                has_license = data.get("exists", False)
             else:
                 logging.warning(
                     f"Failed status {response.status_code} for personNumber: {person_number}"
